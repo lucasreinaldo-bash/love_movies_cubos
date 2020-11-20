@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:lovemoviescubos/filmes_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:lovemoviescubos/screen/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Lovie Movies'),
+      home: HomeScreen(),
     );
   }
 }

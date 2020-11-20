@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:lovemoviescubos/models/atores_response.dart';
+import 'package:lovemoviescubos/models/genero_response.dart';
 import 'package:lovemoviescubos/models/response_filme.dart';
 
 class FilmesRepository {
@@ -64,6 +65,22 @@ class FilmesRepository {
     } catch (error, stacktrace) {
       print("Exception ocurred: $error stacktrace: $stacktrace");
       return AtoresResponse.withError("$error");
+    }
+  }
+
+  Future<GeneroResponse> getGenero() async {
+    var params = {
+      "api_key": apiKey,
+      "language": "en-US",
+      "page:": 1,
+    };
+
+    try {
+      Response response = await _dio.get(getGeneroUrl, queryParameters: params);
+      return GeneroResponse.fromJson(response.data);
+    } catch (error, stacktrace) {
+      print("Exception ocurred: $error stacktrace: $stacktrace");
+      return GeneroResponse.withError("$error");
     }
   }
 
