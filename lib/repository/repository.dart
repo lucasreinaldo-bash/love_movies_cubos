@@ -11,7 +11,7 @@ class FilmesRepository {
   var getPopularUrl = "$mainUrl/movie/top_rated";
   var getMoviesUrl = "$mainUrl/discover/movie";
   var getPlayingUrl = "$mainUrl/movie/now_playing";
-  var getGeneroUrl = "$mainUrl/genero/movie/list";
+  var getGeneroUrl = "$mainUrl/genre/movie/list";
   var getPersonagensUrl = "$mainUrl/trending/person/week";
 
   Future<FilmeResponse> getFilmes() async {

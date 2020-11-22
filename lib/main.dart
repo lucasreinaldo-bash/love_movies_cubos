@@ -65,23 +65,19 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  var title;
   openStartPage() async {
     var dataStr = jsonEncode({
       "command": "get_products",
     });
 
-    var url = Uri.https("https://api.themoviedb.org", '/3/discover/movie', {
-      '73d0e926f349bfb4d8211828e4292640': "",
-      'page': 1.toString(),
-      'sort_by': "popularity.desc"
-    });
+    var url =
+        "https://api.themoviedb.org/3/movie/76341?api_key=73d0e926f349bfb4d8211828e4292640";
 
-    var response = await http.get(url);
+    Response response = await Dio().get(url);
 
-    var body = json.decode(response.body);
-
-    result = body["title"];
-    print(body['results']);
+    title = response.data["title"];
+    print(response.data["title"]);
 
 //    print(response.data);
   }
@@ -96,8 +92,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
-        child: Text(""),
+        child: Text(
+          "Filme " + title,
+          style: TextStyle(color: Colors.black38),
+        ),
       ),
     );
   }

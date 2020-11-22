@@ -35,6 +35,9 @@ dependencies:
   page_indicator:
   rxdart: ^0.23.1
 
+  cloud_firestore:
+
+
 
 dev_dependencies:
   flutter_test:

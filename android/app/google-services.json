@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "245115595184",
+    "firebase_url": "https://lovemoviescubos.firebaseio.com",
+    "project_id": "lovemoviescubos",
+    "storage_bucket": "lovemoviescubos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245115595184:android:9fe966c6c30d9dfcd68e75",
+        "android_client_info": {
+          "package_name": "com.vostore.lovemoviescubos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245115595184-qsngg66nvbggu22vvtdr377cleb00siv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vostore.lovemoviescubos",
+            "certificate_hash": "7ac5f4cf4875c42ba5404958d570ba6c9f533583"
+          }
+        },
+        {
+          "client_id": "245115595184-qon70220bbg09n955jh6ltfn378l6kd6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuiyEIeU-wbjy8prckpTvEX1VRDLa_JXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245115595184-qon70220bbg09n955jh6ltfn378l6kd6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
