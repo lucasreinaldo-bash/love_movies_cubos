@@ -192,57 +192,31 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 width: 500,
                 height: 400,
-                child: _pesquisarController.text.length > 2
-                    ? FutureBuilder(
-                        future: FirebaseFirestore.instance
-                            .collection("Filmes")
-                            .where("title",
-                                isEqualTo: _pesquisarController.text)
-                            .get(),
-                        builder: (context, snapshot) {
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: LinearProgressIndicator(),
-                            );
-                          } else {
-                            return ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                shrinkWrap: true,
-                                itemCount: snapshot.data.documents.length,
-                                itemBuilder: (_, index) {
-                                  FilmesData data = FilmesData.fromDocument(
-                                      snapshot.data.documents[index]);
+                child: FutureBuilder(
+                  future: FirebaseFirestore.instance
+                      .collection("Filmes")
+                      .orderBy("title", descending: false)
+                      .where("genre_ids", arrayContains: categoria_id)
+                      .get(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: LinearProgressIndicator(),
+                      );
+                    } else {
+                      return ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          shrinkWrap: true,
+                          itemCount: snapshot.data.documents.length,
+                          itemBuilder: (_, index) {
+                            FilmesData data = FilmesData.fromDocument(
+                                snapshot.data.documents[index]);
 
-                                  return FilmeTile(data);
-                                });
-                          }
-                        },
-                      )
-                    : FutureBuilder(
-                        future: FirebaseFirestore.instance
-                            .collection("Filmes")
-                            .orderBy("title", descending: false)
-                            .where("genre_ids", arrayContains: categoria_id)
-                            .get(),
-                        builder: (context, snapshot) {
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: LinearProgressIndicator(),
-                            );
-                          } else {
-                            return ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                shrinkWrap: true,
-                                itemCount: snapshot.data.documents.length,
-                                itemBuilder: (_, index) {
-                                  FilmesData data = FilmesData.fromDocument(
-                                      snapshot.data.documents[index]);
-
-                                  return FilmeTile(data);
-                                });
-                          }
-                        },
-                      ),
+                            return FilmeTile(data);
+                          });
+                    }
+                  },
+                ),
               ),
             ],
           ),
