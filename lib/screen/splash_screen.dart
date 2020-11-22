@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
@@ -57,8 +58,10 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   uploaderFilmes() async {
+    Random random = new Random();
+    int randomNumber = random.nextInt(400);
     var urlFilmes =
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=${repository.apiKey}&language=pt-BR";
+        "https://api.themoviedb.org/3/movie/now_playing?api_key=${repository.apiKey}&language=pt-BR&page=${randomNumber}";
 
     Response response = await Dio().get(urlFilmes);
 
@@ -89,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
       var snapshots = await FirebaseFirestore.instance
           .collection("Generos")
-          .document(item["name"])
+          .document(item["id"].toString())
           .setData(item);
     }
     Navigator.pushNamed(context, "/home");
