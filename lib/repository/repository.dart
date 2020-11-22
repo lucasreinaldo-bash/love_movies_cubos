@@ -4,7 +4,7 @@ import 'package:lovemoviescubos/models/genero_response.dart';
 import 'package:lovemoviescubos/models/response_filme.dart';
 
 class FilmesRepository {
-  final String apiKey = "";
+  final String apiKey = "73d0e926f349bfb4d8211828e4292640";
   static String mainUrl = "https://api.themoviedb.org/3";
   final Dio _dio = Dio();
 

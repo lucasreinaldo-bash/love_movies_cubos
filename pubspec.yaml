@@ -31,6 +31,7 @@ dependencies:
   dio: ^3.0.9
   flutter_money_formatter:
   http:
+  firebase_core:
   flare_flutter: ^2.0.3
   page_indicator:
   rxdart: ^0.23.1
@@ -56,6 +57,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/logo.png
 
   fonts:
 
@@ -78,6 +80,14 @@ flutter:
     - family: Roboto
       fonts:
         - asset: fonts/Roboto-Condensed.ttf
+
+    - family: MontRegular
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+
+    - family: MontThin
+      fonts:
+          - asset: fonts/Montserrat-Thin.ttf
 
 
   # To add assets to your application, add an assets section, like this:
